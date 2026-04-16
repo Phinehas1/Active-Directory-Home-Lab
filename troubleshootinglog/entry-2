@@ -1,0 +1,7 @@
+Implemented Enterprise-Level Security Banners via Group Policy (GPO)
+
+Action: Configured a "Legal Notice" GPO to enforce a mandatory consent-to-monitoring banner on all domain-joined workstations.
+
+Purpose: To meet compliance standards (like NIST or ISO) that require users to be notified of system monitoring and authorized use policies prior to authentication.
+
+Technical Detail: Modified the Interactive logon: Message text/title settings within the Group Policy Management Editor and verified deployment using gpupdate /force.
