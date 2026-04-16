@@ -1,0 +1,18 @@
+Technical Log: Authentication Logic & Domain Qualification
+The Challenge:
+After successfully joining the Windows 11 Client to the phinehas.local domain, I attempted to log in as the Administrator. 
+Despite resetting the password on the Domain Controller (DC01), the Client repeatedly rejected the credentials as "Incorrect Username or Password.
+
+The Analysis:
+I realized the Client was defaulting to its Local Security Authority (LSA). When typing just Administrator, 
+the machine was attempting to authenticate against its local SAM database (CLI01\Administrator) 
+rather than the Active Directory database on the Domain Controller.
+
+The Resolution:
+I used a Qualified Username by prepending the NetBIOS domain name: PHINEHAS\Administrator.
+
+The Takeaway:
+This confirmed that the "Trust Relationship" and DNS resolution between the Client and Domain Controller were functioning correctly. 
+It highlighted the critical distinction between Local Accounts and Domain Accounts in a Windows environment.
+
+
